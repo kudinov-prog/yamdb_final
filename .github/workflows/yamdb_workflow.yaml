@@ -1,4 +1,4 @@
-name: yamdb_final workflow
+name: yamdb_workflow workflow
 
 on: [push]
 
@@ -22,7 +22,7 @@ jobs:
     #  run: flake8 .
 
     - name: Test with pytest
-      run: pytest tests.py
+      run: pytest
   
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
