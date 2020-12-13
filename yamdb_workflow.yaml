@@ -18,17 +18,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         pip install -r requirements.txt
+
     - name: Lint with flake8
       run: flake8 .
 
     - name: Test with pytest
-      run: pytest tests.py
+      run: pytest
   
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     needs: tests
-
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
@@ -61,6 +61,7 @@ jobs:
          sudo docker pull kudinov/yamdb_final
          sudo docker stop $(sudo docker ps -a -q)
          sudo docker run --rm -d -p 5000:5000 kudinov/yamdb_final
+
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
