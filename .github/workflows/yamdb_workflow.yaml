@@ -58,7 +58,7 @@ jobs:
        key: ${{ secrets.SSH_KEY }}
        passphrase: ${{ secrets.PASSPHRASE }}
        script: |
-         sudo docker pull kudinov/yamdb_final
+         sudo docker pull kudinov/yamdb_final:latest
          sudo docker-compose stop
          sudo docker-compose down --tmi local
          sudo docker-compose up
