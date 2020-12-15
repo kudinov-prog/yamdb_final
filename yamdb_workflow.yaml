@@ -60,7 +60,7 @@ jobs:
        script: |
          sudo docker pull kudinov/yamdb_final:latest
          sudo docker-compose stop
-         sudo docker-compose down --tmi local
+         sudo docker-compose down --rmi local
          sudo docker-compose up
 
   send_message:
